@@ -14,5 +14,5 @@ if [[ "$_REAP_EXEC" != "1" ]]; then
     eval $cmd
 fi
 
-cmd="$dnscap -i $INTERFACE -N -w $CBOR_TMP_SUBDIR_PATH -F cbor -k \"$CBOR_FILE_HANDLER_SCRIPT\" -u 53 -U '$DNSCAP_PCAP_FILTER' -s r"
+cmd="$dnscap -i $INTERFACE -N -w $CBOR_TMP_SUBDIR_PATH -F cbor -k \"$CBOR_FILE_HANDLER_SCRIPT\" -u 53 -U '$DNSCAP_PCAP_FILTER' -s r -d"
 eval $cmd

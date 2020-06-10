@@ -11,7 +11,8 @@ LOG_FILE_MAX_BYTES="1048576"
 
 LOCAL_DNS_SERVER_IP_ADDRESS="$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'| grep '^10\.'| head -n1)"
 INTERFACE="$(ip r show|grep " src $LOCAL_DNS_SERVER_IP_ADDRESS" |cut -d " " -f 3,12)"
-DNSCAP_PCAP_FILTER="src net 10.0.0.0/8 and host $LOCAL_DNS_SERVER_IP_ADDRESS"
+INTERFACE="eth0" #$(ip r show|grep " src $LOCAL_DNS_SERVER_IP_ADDRESS" |cut -d " " -f 3,12)"
+DNSCAP_PCAP_FILTER="port 53"
 
 
 cbordump=./cbordump
