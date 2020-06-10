@@ -1,0 +1,11 @@
+[Unit]
+Description=Normalize dns_logger log files
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=300 
+Unit=dns_logger_normalize_log_files.service
+
+
+[Install]
+WantedBy=multi-user.target

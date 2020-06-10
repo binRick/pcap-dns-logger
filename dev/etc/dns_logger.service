@@ -1,0 +1,22 @@
+[Unit]
+Description=DNS Logger
+After=multi-user.target
+
+[Service]
+Type=idle
+User=root
+Group=root
+WorkingDirectory=/
+PIDFile=/var/run/dns_logger.pid
+ExecStart=/opt/dns_logger/bin/start.sh
+Restart=always
+TimeoutStartSec=10
+RestartSec=10
+Environment=SYSTEMD_WRAPPED=1
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dns_logger
+
+[Install]
+WantedBy=multi-user.target

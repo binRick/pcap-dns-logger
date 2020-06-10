@@ -1,0 +1,20 @@
+[Unit]
+Description=DNS Logger Log Files Normalization
+After=multi-user.target
+
+[Service]
+Type=idle
+User=root
+Group=root
+WorkingDirectory=/
+PIDFile=/var/run/dns_logger_normalize_log_files.pid
+ExecStart=/opt/dns_logger/bin/normalize_log_files.sh
+Restart=always
+Environment=SYSTEMD_WRAPPED=1
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dns_logger_normalize_log_files
+
+[Install]
+WantedBy=multi-user.target
